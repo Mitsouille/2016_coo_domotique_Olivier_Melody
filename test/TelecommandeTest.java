@@ -54,9 +54,19 @@ public class TelecommandeTest{
         t.ajouterLampe(l1);
         t.ajouterLampe(l2);
 
+        t.getLampe(1).allumer();
         boolean allumer1 = t.getLampe(0).isAllume();
         boolean allumer2 = t.getLampe(1).isAllume();
         assertEquals(false,allumer1,"La lampe en position 0 doit etre eteinte");
         assertEquals(true,allumer2,"La lampe en position 1 doit etre allumée.");
+    }
+
+    @Test
+    public void testAllumerLampeInexistante(){
+        Telecommande t = new Telecommande();
+
+        t.getLampe(0).allumer();
+        boolean allumer = t.getLampe(0).isAllume();
+        assertEquals(false,allumer,"Il n'y a pas de lampes");
     }
 }
