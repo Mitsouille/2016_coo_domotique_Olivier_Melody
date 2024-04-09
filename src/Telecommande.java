@@ -1,53 +1,37 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Telecommande {
+    private List<Appareil> appareils;
 
-
-    private ArrayList<Lampe> lampes;
-
-    public Telecommande(){
-        this.lampes = new ArrayList<Lampe>();
+    public Telecommande() {
+        this.appareils = new ArrayList<Appareil>();
     }
 
-    public void ajouterLampe(Lampe l) {
-        this.lampes.add(l);
+    public void ajouterAppareil(Appareil a) {
+        this.appareils.add(a);
     }
 
-    public void activerLampe(int indiceLampe) {
-        this.lampes.get(indiceLampe).allumer();
+    public void activerAppareil(int indiceAppareil) {
+        this.appareils.get(indiceAppareil).allumer();
     }
 
-    public void desactiverLampe(int indiceLampe) {
-        this.lampes.get(indiceLampe).eteindre();
+    public void desactiverAppareil(int indiceAppareil) {
+        this.appareils.get(indiceAppareil).eteindre();
     }
 
     public void activerTout() {
-        for (Lampe l : this.lampes) {
-            l.allumer();
-        }
-    }
-
-    public ArrayList<Lampe> getLampes() {
-        return lampes;
-    }
-
-    public Lampe getLampe(int i) {
-        return this.lampes.get(i);
-    }
-
-    public void setLampes(ArrayList<Lampe> lampes) {
-        this.lampes = lampes;
-    }
-
-    public void setLampe(Lampe l, int i) {
-        this.lampes.set(i, l);
+        for (Appareil a : this.appareils)
+            a.allumer();
     }
 
     public String toString() {
-        String res = "";
-        for (Lampe l : this.lampes) {
-            res += l.toString();
+        StringBuilder str = new StringBuilder();
+        str.append("Appareil : ");
+        for (Appareil a : this.appareils) {
+            str.append(a.toString());
+            str.append("\n");
         }
-        return res;
+        return new String(str);
     }
 }

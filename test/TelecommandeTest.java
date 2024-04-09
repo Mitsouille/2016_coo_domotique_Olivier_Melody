@@ -15,7 +15,7 @@ public class TelecommandeTest{
 
         t.ajouterLampe(l);
 
-        int taille = t.getLampes().length;
+        int taille = t.getLampes().size();
         assertEquals(1,taille,"La telecommande doit avoir une lampe.");
     }
 
@@ -28,7 +28,7 @@ public class TelecommandeTest{
         t.ajouterLampe(l1);
         t.ajouterLampe(l2);
 
-        int taille = t.getLampes().length;
+        int taille = t.getLampes().size();
         assertEquals(2,taille,"La telecommande doit avoir deux lampes");
     }
 
